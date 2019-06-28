@@ -3,6 +3,7 @@ project(snsdl)
 
 add_executable(snsdl
     src/error.cpp
+    src/rectangle.cpp
     src/window.cpp
     src/renderer.cpp
     src/main.cpp
