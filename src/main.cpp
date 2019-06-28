@@ -4,6 +4,7 @@
 #include "SDL2/SDL_mixer.h"
 #include "error.h"
 #include "window.h"
+#include "renderer.h"
 
 
 int main()
@@ -25,7 +26,18 @@ int main()
     };
 
     Window window{"SNSDL test", 640, 480, 0};
-    SDL_Delay(3000);
+    Renderer renderer{&window, 0};
+
+    while (1) {
+        SDL_Event e;
+        if (SDL_PollEvent(&e)) {
+            if (e.type == SDL_QUIT) {
+                break;
+            }
+        }
+        renderer.clear();
+        renderer.present();
+    }
 
     return 0;
 };

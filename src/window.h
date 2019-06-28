@@ -6,6 +6,9 @@
 namespace snsdl
 {
 
+class Renderer;
+
+
 class Window
 {
 private:
@@ -17,6 +20,8 @@ public:
     Window operator=(const Window &) = delete;
     Window operator=(Window &&) = delete;
     ~Window();
+public:
+    friend Renderer;
 };
 
 }
