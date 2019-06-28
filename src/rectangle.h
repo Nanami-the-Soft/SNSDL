@@ -6,6 +6,9 @@
 namespace snsdl
 {
 
+class Renderer;
+
+
 class Rectangle
 {
 private:
@@ -21,6 +24,8 @@ public:
     void set_width(int);
     int get_height();
     void set_height(int);
+public:
+    friend Renderer;
 };
 
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SDL2/SDL.h"
+#include "rectangle.h"
 #include "window.h"
 
 namespace snsdl
@@ -17,6 +18,9 @@ public:
     Renderer operator=(const Renderer &) = delete;
     Renderer operator=(Renderer &&) = delete;
     ~Renderer();
+public:
+    Rectangle get_viewport();
+    void set_viewport(const Rectangle *);
 public:
     void clear();
     void present();

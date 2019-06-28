@@ -19,6 +19,21 @@ Renderer::~Renderer()
 };
 
 
+Rectangle Renderer::get_viewport()
+{
+    Rectangle viewport{0, 0, 0, 0};
+    SDL_RenderGetViewport(actual_renderer, &(viewport.actual_rect));
+    return viewport;
+};
+
+
+void Renderer::set_viewport(const Rectangle * rectangle)
+{
+    if (SDL_RenderSetViewport(actual_renderer, &(rectangle->actual_rect)) != 0)
+     throw ExceptionFromSdl{};
+};
+
+
 void Renderer::clear()
 {
      if (SDL_RenderClear(actual_renderer) != 0) throw ExceptionFromSdl{};
